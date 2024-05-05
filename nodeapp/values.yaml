@@ -1,17 +1,20 @@
-# Default values for helm.
+# Default values for nodeapp.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: mojtabamahdian/node-app
+  repository: devopshint/node-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
+  #tag: "{{ .Values.env.APP_VERSION }}"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+env:
+  APP_VERSION: 5ddacfc4c3af2244cc4b57216320402f128e17a9
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -27,8 +30,6 @@ serviceAccount:
 podAnnotations: {}
 podLabels: {}
 
-env:
-  APP_VERSION: 6994f1633e5cd2f29b845046507e606df9cc247b
 podSecurityContext: {}
   # fsGroup: 2000
 
